@@ -1,0 +1,938 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+.nasomatto-page {
+  position: relative;
+
+  min-height: 500vh;
+
+  background: #000;
+
+  color: #fff;
+}
+
+.nasomatto-main-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 100;
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+
+.nasomatto-header-hidden {
+  opacity: 0;
+
+  transform: translateY(-100%);
+
+  pointer-events: none;
+}
+
+
+.nasomatto-subheader {
+  position: fixed;
+
+  left: 0;
+
+  width: 100%;
+  height: 60px;
+
+  padding: 0 44px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 8000;
+
+  opacity: 0;
+  pointer-events: none;
+
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(15px);
+
+  transition:
+    top 0.5s ease,
+    opacity 0.5s ease;
+}
+
+
+.nasomatto-subheader-with-header {
+  top: 50px;
+}
+
+
+.nasomatto-subheader-without-header {
+  top: 0;
+}
+
+
+.nasomatto-subheader-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.nasomatto-breadcrumbs {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  white-space: nowrap;
+}
+
+
+.nasomatto-breadcrumbs button,
+.nasomatto-breadcrumbs span {
+  border: 0;
+
+  padding: 0;
+
+  background: transparent;
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  letter-spacing: 0.12em;
+}
+
+
+.nasomatto-breadcrumbs button {
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+}
+
+
+.nasomatto-breadcrumbs button:hover {
+  opacity: 0.5;
+}
+
+
+.nasomatto-section-navigation {
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
+
+  flex-shrink: 0;
+}
+
+
+.nasomatto-section-labels {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-bottom: 8px;
+}
+
+
+.nasomatto-section-label {
+  border: 0;
+
+  padding: 0;
+
+  background: transparent;
+  /* color: rgba(255, 255, 255, 0.45); */
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.nasomatto-section-label:first-child {
+  text-align: left;
+}
+
+
+.nasomatto-section-label:last-child {
+  text-align: right;
+}
+
+
+.nasomatto-section-label:hover {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+
+.nasomatto-section-label.active {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+
+.nasomatto-section-line {
+  position: relative;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  overflow: hidden;
+}
+
+
+.nasomatto-section-progress {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  height: 1px;
+
+  background: white;
+
+  transition: width 0.5s ease;
+}
+
+
+.nasomatto-video {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  object-fit: cover;
+
+  z-index: 0;
+
+  transform: scale(1.08);
+
+  pointer-events: none;
+}
+
+
+.nasomatto-overlay {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #000;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+.nasomatto-hero {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 100vh;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+
+.nasomatto-title {
+
+  margin-right: 40%;
+  margin-top: 15vh;
+
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+
+  color: #fff;
+
+  font-size: 8vw;
+
+  letter-spacing: 0.02em;
+
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+.nasomatto-section {
+
+  position: relative;
+
+  z-index: 3;
+
+  min-height: 100vh;
+
+  padding:
+
+    45vh
+    8vw
+    20vh;
+
+  box-sizing: border-box;
+
+  scroll-margin-top: 70px;
+
+}
+
+/*
+
+.nasomatto-section-content {
+
+  max-width: 700px;
+
+}
+
+*/
+
+.nasomatto-section h2 {
+
+  margin: 0 0 50px;
+
+  font-size: 5vw;
+
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+
+  color: #fff;
+
+  letter-spacing: 0.02em;
+
+}
+
+
+.nasomatto-section p {
+
+  max-width: 1000px;
+
+  margin: 0 0 30px;
+
+  font-size: 22px;
+
+  line-height: 1.6;
+
+  text-align: justify;
+}
+
+.nasomatto-main-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100px;
+
+  z-index: 9000;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(15px);
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.nasomatto-header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 50px;
+
+  z-index: 9000;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(15px);
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.nasomatto-header-wrapper.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.nasomatto-header-wrapper .header {
+  position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+.nas-gray-div {
+  position: relative;
+
+  width: 100%;
+  height: 150vh;
+
+  min-height: 700px;
+
+  background: #121212;
+
+  z-index: 500;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  display: flex;
+}
+
+
+.nas-collection-text {
+  width: 50%;
+
+  height: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12vh 6vw;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+
+.nas-collection-text h2 {
+  margin: 0 0 40px;
+
+  font-size: 5vw;
+
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+}
+
+
+.nas-collection-text p {
+  max-width: 500px;
+
+  margin: 0;
+
+  font-size: 20px;
+
+  line-height: 1.6;
+}
+
+
+.nas-collection-carousel {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 50%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 0 0 100px;
+
+  scroll-behavior: smooth;
+
+  overscroll-behavior-x: contain;
+}
+
+
+.nas-collection-track {
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  width: max-content;
+
+  padding: 0 50px;
+  padding-top: 25%;
+}
+
+
+.nas-perfume-card {
+  flex: 0 0 auto;
+
+  width: 280px;
+  height: 500px;
+}
+
+.nas-perfume-image {
+  width: 100%;
+  height: 80%;
+
+  background: #1d1d1d;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: rgba(255,255,255,0.5);
+
+  font-size: 11px;
+
+  letter-spacing: 0.15em;
+}
+
+
+.nas-collection-carousel::-webkit-scrollbar {
+  height: 4px;
+}
+
+
+.nas-collection-carousel::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.12);
+}
+
+
+.nas-collection-carousel::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.7);
+}
+
+
+.nas-collection-carousel::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+
+
+
+.nas-collection-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.nas-collection-carousel {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 0 0 100px;
+
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+
+  scrollbar-width: none;
+}
+
+.nas-collection-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.nas-collection-carousel.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.nas-collection-carousel.is-dragging * {
+  pointer-events: none;
+}
+
+.nas-collection-scrollbar {
+  position: absolute;
+
+  left: 10%;
+  bottom: 12%;
+
+  width: 80%;
+  height: 10px;
+
+  z-index: 20;
+
+  cursor: pointer;
+}
+
+
+.nas-collection-scrollbar-track {
+  position: relative;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+.nas-collection-scrollbar-thumb {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 20%;
+  height: 1px;
+
+  background: white;
+
+  transition: left 0.15s ease-out;
+}
+
+.nas-collection-carousel.is-dragging {
+  cursor: grabbing;
+
+  scroll-behavior: auto;
+}
+
+.nas-collection-carousel.is-dragging * {
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+.nasomatto-fixed-image-section {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 4;
+
+  background: transparent;
+}
+
+
+.nasomatto-fixed-image {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+
+.nasomatto-fixed-image {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 501;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition: opacity 0.6s ease;
+}
+
+
+.nasomatto-fixed-image.visible {
+  opacity: 1;
+}
+
+
+.nasomatto-fixed-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+.nasomatto-fixed-image-section {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 4;
+
+  background: transparent;
+
+  pointer-events: none;
+}
+
+
+.nasomatto-fixed-image {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  z-index: 4;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition: opacity 0.6s ease;
+}
+
+
+.nasomatto-fixed-image.visible {
+  opacity: 1;
+}
+
+
+.nasomatto-fixed-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.nasomatto-white-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 190vh;
+
+  background: #fff;
+
+  color: #000;
+
+  z-index: 10;
+
+  padding: 10vh 6vw 15vh;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+
+.nasomatto-philosophy {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 75vh;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.nasomatto-philosophy-image {
+    /*
+  width: 50%;
+  height: 65vh;
+  */
+  width: 48%;
+  height: auto;
+
+  overflow: hidden;
+}
+
+
+.nasomatto-philosophy-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+
+.nasomatto-philosophy-content {
+  width: 50%;
+
+  box-sizing: border-box;
+
+  padding: 8vh 0 0 7vw;
+}
+
+
+.nasomatto-philosophy-content h2,
+.nasomatto-discover-content h2 {
+
+  margin: 0 0 35px;
+
+  font-family: "Fira Sans", sans-serif;
+
+  font-size: 5vw;
+
+  font-weight: 500;
+
+  letter-spacing: 0.02em;
+}
+
+
+.nasomatto-philosophy-content p,
+.nasomatto-discover-content p {
+
+  max-width: 500px;
+
+  margin: 0;
+
+  font-size: 20px;
+
+  line-height: 1.6;
+
+  text-align: justify;
+}
+
+
+.nasomatto-discover {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 80vh;
+
+  display: flex;
+  align-items: flex-start;
+
+  margin-top: -12vh;
+}
+
+
+.nasomatto-discover-content {
+  width: 50%;
+
+  box-sizing: border-box;
+
+  padding: 25vh 7vw 0 0;
+}
+
+
+.nasomatto-discover-image {
+  width: 48%;
+  height: auto;
+
+  overflow: hidden;
+}
+
+
+.nasomatto-discover-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.zindex {
+    z-index: 8000;
+}
+
+.nas-perfume-card {
+  cursor: pointer;
+}
